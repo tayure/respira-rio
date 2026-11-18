@@ -43,7 +43,7 @@ os.makedirs(OUT_DIR, exist_ok=True)
 # 0. INSPEÇÃO RÁPIDA
 # ──────────────────────────────────────────────────────────────
 
-print("🔍 Inspeção rápida...")
+print("Inspeção rápida...")
 ds_check = xr.open_dataset("data/pm25.nc")
 var_check = [v for v in ds_check.data_vars
              if v not in ("latitude", "longitude", "valid_time")][0]
@@ -61,7 +61,7 @@ print()
 # 1. LER E EXTRAIR
 # ──────────────────────────────────────────────────────────────
 
-print("📂 A ler ficheiros NetCDF...")
+print("A ler ficheiros NetCDF...")
 
 files = {
     "pm25": "data/pm25.nc",
@@ -91,7 +91,7 @@ df.index = pd.to_datetime(df.index)
 # Converter kg/m³ → µg/m³ (1 kg = 1e9 µg)
 df = df * 1e9
 
-print(f"✅ Dados carregados: {len(df)} pontos (3-horário)")
+print(f"Dados carregados: {len(df)} pontos (3-horário)")
 print(f"   Range: {df.index[0].date()} → {df.index[-1].date()}")
 
 # ──────────────────────────────────────────────────────────────
@@ -105,7 +105,7 @@ print(f"   Range: {df.index[0].date()} → {df.index[-1].date()}")
 df_daily = df.resample("D").mean()
 df_daily = df_daily.dropna()  # remover dias incompletos (ex: último dia)
 
-print(f"\n📅 Resample diário: {len(df_daily)} dias")
+print(f"\n Resample diário: {len(df_daily)} dias")
 df_daily.to_csv("data/santa_cruz_diario.csv")
 
 # ──────────────────────────────────────────────────────────────
@@ -177,7 +177,7 @@ for col in ["pm25", "pm10", "so2"]:
           f"{p99_pre:>10.2f} {p99_pos:>10.2f} {p_str:>10}")
 
 print("=" * 80)
-print("\n📌 Interpretação do p-value:")
+print("\n Interpretação do p-value:")
 print("   p < 0.05 → diferença estatisticamente significativa (a fábrica PROVAVELMENTE causou)")
 print("   p > 0.05 → diferença NÃO significativa (pode ser ruído/sorte)")
 
@@ -240,8 +240,8 @@ for col in ["pm25", "pm10", "so2"]:
     fig.tight_layout()
     fig.savefig(f"{OUT_DIR}/{col}_analysis.png", bbox_inches="tight")
     plt.close(fig)
-    print(f"📈 Gráfico guardado: output/{col}_analysis.png")
+    print(f" Gráfico guardado: output/{col}_analysis.png")
 
-print("\n🎉 Tudo pronto!")
+print("\n Tudo pronto!")
 print("   CSV diário: data/santa_cruz_diario.csv")
 print("   Gráficos:   output/*_analysis.png")   

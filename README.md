@@ -286,6 +286,10 @@ python app.py
 
 ---
 
-## Licença
+## Licença e Propriedade Intelectual
 
-Projeto académico. Dados: © Copernicus Atmosphere Monitoring Service (ECMWF).
+**Todos os direitos reservados © 2026 Luan Oliveira Moreira da Silva.**
+
+Este estudo, códigos, documentação e resultados apresentados neste repositório são de propriedade intelectual exclusiva do autor. O acesso público destina-se estritamente a fins de portfólio, sendo proibida a sua reprodução ou utilização sem autorização prévia.
+
+*Dados utilizados:* © Copernicus Atmosphere Monitoring Service (ECMWF).
